@@ -25,4 +25,9 @@
 /.nb-gradle/
 
 #other
-*.docx
+**.properties
+*.yml
+target/**
+**/target/**
+*.png
+*.jpg
