@@ -1,4 +1,8 @@
 package nju.edu.repository;
 
-public class ProvinceRepository {
+import nju.edu.entity.Province;
+import org.springframework.data.repository.CrudRepository;
+
+public interface ProvinceRepository extends CrudRepository<Province,Long> {
+    Province findProvinceByProvinceId(String provinceId);
 }

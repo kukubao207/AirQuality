@@ -22,14 +22,16 @@ public class BaseEntity implements Persistable<Long> {
     @Setter
     @Id
     @Column(name = "F_ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Nullable
     @Column(name = "F_CREATED_AT")
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
 
+    @Nullable
     @Column(name = "F_LAST_MODIFIED_AT")
     @LastModifiedDate
     @Temporal(TemporalType.TIMESTAMP)
