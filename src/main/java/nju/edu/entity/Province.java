@@ -4,12 +4,14 @@ import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Data
 @Entity
 @Table(name = "T_PROVINCE")
 public class Province extends BaseEntity{
+    @Id
     @Column(name="F_PROVINCE_ID")
     private String provinceId;
     @Column(name="F_PROVINCE_NAME")

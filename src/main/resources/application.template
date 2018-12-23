@@ -19,6 +19,9 @@ spring:
     hibernate:
       ddl-auto: update
     open-in-view: false
+  data:
+    rest:
+      base-path: /api
 server:
   port: 6666
 spring.session.store-type: none

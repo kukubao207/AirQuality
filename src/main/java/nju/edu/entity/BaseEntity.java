@@ -1,8 +1,6 @@
 package nju.edu.entity;
-import org.springframework.data.domain.Persistable;
+
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 import org.joda.time.DateTime;
 import org.springframework.data.annotation.CreatedDate;
@@ -17,14 +15,7 @@ import java.util.Date;
 @EqualsAndHashCode
 @MappedSuperclass
 @EntityListeners({AuditingEntityListener.class})
-public class BaseEntity implements Persistable<Long> {
-    @Getter
-    @Setter
-    @Id
-    @Column(name = "F_ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class BaseEntity {
     @Nullable
     @Column(name = "F_CREATED_AT")
     @CreatedDate
@@ -36,15 +27,6 @@ public class BaseEntity implements Persistable<Long> {
     @LastModifiedDate
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastModifiedDate;
-
-    @Override
-    public boolean isNew() {
-        return null == getId();
-    }
-
-    @Override
-    @Nullable
-    public Long getId(){ return id;}
 
     public DateTime getCreatedDate() {
 
