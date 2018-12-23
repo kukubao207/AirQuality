@@ -21,7 +21,7 @@ spring:
     open-in-view: false
   data:
     rest:
-      base-path: /api
+      base-path:
 server:
   port: 6666
 spring.session.store-type: none

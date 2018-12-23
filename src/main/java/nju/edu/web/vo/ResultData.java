@@ -15,6 +15,7 @@ public class ResultData {
 
     public ResultData() {
         this.responseCode = ResponseCode.RESPONSE_OK;
+        this.description = "成功";
     }
 
     public ResponseCode getResponseCode() {
@@ -23,6 +24,9 @@ public class ResultData {
 
     public void setResponseCode(ResponseCode responseCode) {
         this.responseCode = responseCode;
+        if(responseCode==ResponseCode.RESPONSE_NULL) {
+            this.description = "失败";
+        }
     }
 
     public Object getData() {

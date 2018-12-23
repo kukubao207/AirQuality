@@ -3,6 +3,9 @@ package nju.edu.service.impl;
 import nju.edu.entity.*;
 import nju.edu.repository.UserInfoRepository;
 import nju.edu.service.UserInfoService;
+import nju.edu.util.ResponseCode;
+import nju.edu.util.ServiceHelpUtil;
+import nju.edu.web.vo.ResultData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,13 +19,15 @@ public class UserInfoServiceImpl implements UserInfoService {
     private UserInfoRepository userInfoRespository;
 
     @Override
-    public UserInfo saveUserInfo(UserInfo userInfo) {
-        return userInfoRespository.save(userInfo);
+    public ResultData saveUserInfo(UserInfo userInfo) {
+        Object data = userInfoRespository.save(userInfo);
+        return ServiceHelpUtil.helpReturn(data);
     }
 
     @Override
-    public UserInfo findUserInfoByOwnerId(String ownerId) {
-        return userInfoRespository.findUserInfoByOwnerId(ownerId);
+    public ResultData findUserInfoByOwnerId(String ownerId) {
+        Object data = userInfoRespository.findUserInfoByOwnerId(ownerId);
+        return ServiceHelpUtil.helpReturn(data);
     }
 
 }
