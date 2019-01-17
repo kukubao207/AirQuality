@@ -1,9 +1,8 @@
 package nju.edu.service.impl;
 
-import nju.edu.entity.*;
+import nju.edu.entity.UserInfo;
 import nju.edu.repository.UserInfoRepository;
 import nju.edu.service.UserInfoService;
-import nju.edu.util.ResponseCode;
 import nju.edu.util.ServiceHelpUtil;
 import nju.edu.web.vo.ResultData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,4 +29,9 @@ public class UserInfoServiceImpl implements UserInfoService {
         return ServiceHelpUtil.helpReturn(data);
     }
 
+    @Override
+    public ResultData findUserInfoByPhone(String phone) {
+        Object data = userInfoRespository.findUserInfoByPhone(phone);
+        return ServiceHelpUtil.helpReturn(data);
+    }
 }

@@ -1,6 +1,7 @@
 package nju.edu.entity;
 
 import lombok.Data;
+import org.springframework.context.annotation.Configuration;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +15,10 @@ public class UserInfo extends BaseEntity {
     @Id
     @Column(name = "F_OWNERID")
     private String ownerId;
+    @Column(name = "F_PHONE")
+    private String phone;
+    @Column(name = "password")
+    private String password;
     @Column(name = "F_NICKNAME")
     private String nickName;
     @Column(name = "F_AVATARURL")

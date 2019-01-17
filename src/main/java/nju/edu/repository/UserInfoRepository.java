@@ -7,4 +7,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(collectionResourceRel = "userinfo", path = "userinfo")
 public interface UserInfoRepository extends CrudRepository<UserInfo, String>{
     UserInfo findUserInfoByOwnerId(String ownerId);
+    UserInfo findUserInfoByPhone(String phone);
 }
