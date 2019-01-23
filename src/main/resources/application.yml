@@ -1,0 +1,49 @@
+spring:
+  profiles:
+    active: develop
+
+---
+##开发环境配置
+spring:
+  profiles: develop
+  application:
+    name: airquality
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/AirQuality?useUnicode=yes&characterEncoding=UTF-8
+    username: root
+    password: z86118531
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  data:
+    rest:
+      base-path:
+server:
+  port: 6666
+spring.session.store-type: none
+
+---
+##生产环境配置
+spring:
+  profiles: product
+  application:
+    name: airquality
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://xxxxxxxxxxxxx:3306/AirQuality?useUnicode=yes&characterEncoding=UTF-8
+    username: root
+    password: root
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+server:
+  port: 6666
+spring.session.store-type: none
+
