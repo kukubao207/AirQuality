@@ -26,7 +26,6 @@
 
 #other
 **.properties
-*.yml
 target/**
 **/target/**
 *.png
