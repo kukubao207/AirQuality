@@ -1,6 +1,7 @@
 package nju.edu.web.controller;
 
 import nju.edu.service.CityService;
+import nju.edu.service.ProvinceService;
 import nju.edu.util.LocationUtil;
 import nju.edu.web.vo.ResultData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class LocationController {
 
     @Autowired
     private CityService cityService;
+
+    @Autowired
+    private ProvinceService provinceService;
 
     //根据ip解析地址
     @PostMapping("/ip/resolve")
@@ -35,4 +39,9 @@ public class LocationController {
         return cityService.getCityList();
     }
 
+    //获取省份列表
+    @GetMapping("/province/list")
+    public ResultData getProvinceList(){
+        return provinceService.getProvinceList();
+    }
 }
