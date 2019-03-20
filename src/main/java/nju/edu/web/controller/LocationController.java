@@ -30,7 +30,7 @@ public class LocationController {
     }
 
     //获取城市列表
-    @GetMapping("city/list")
+    @GetMapping("/city/list")
     public ResultData getCityList(){
         return cityService.getCityList();
     }

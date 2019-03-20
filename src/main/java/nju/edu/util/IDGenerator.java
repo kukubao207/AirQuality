@@ -1,5 +1,6 @@
 package nju.edu.util;
 
+import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Random;
@@ -22,12 +23,17 @@ public class IDGenerator {
             temp[i] = generate();
         }
         StringBuffer result = new StringBuffer();
-        Random random = new Random();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-        result.append(prefix.toUpperCase());
-        result.append(sdf.format(Calendar.getInstance().getTime()));
-        result.append(new String(temp));
-        result.append(random.nextInt(99));
+        try {
+            Random rand = SecureRandom.getInstanceStrong();  // SecureRandom is preferred to Random
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+            result.append(prefix.toUpperCase());
+            result.append(sdf.format(Calendar.getInstance().getTime()));
+            result.append(new String(temp));
+            result.append(rand.nextInt(99));
+            return result.toString();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return result.toString();
     }
 }
